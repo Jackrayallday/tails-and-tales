@@ -11,20 +11,53 @@ import spaceImage from '../assets/collections/space.png'
 import villageImage from '../assets/collections/village.png'
 
 export const popularBreeds = [
-  { name: 'Airedale Terrier', image: airedaleImage },
-  { name: 'Golden Retriever', image: goldenRetrieverImage },
-  { name: 'French Bulldog', image: frenchImage },
-  { name: 'German Shepherd', image: germanImage },
-  { name: 'Poodle', image: poodleImage },
-  { name: 'Pembroke Welsh Corgi', image: corgiImage },
+  { name: 'Airedale Terrier', slug: 'airedale-terrier', image: airedaleImage },
+  {
+    name: 'Golden Retriever',
+    slug: 'golden-retriever',
+    image: goldenRetrieverImage,
+  },
+  { name: 'French Bulldog', slug: 'french-bulldog', image: frenchImage },
+  { name: 'German Shepherd', slug: 'german-shepherd', image: germanImage },
+  { name: 'Poodle', slug: 'poodle', image: poodleImage },
+  {
+    name: 'Pembroke Welsh Corgi',
+    slug: 'pembroke-welsh-corgi',
+    image: corgiImage,
+  },
 ]
 
 export const collections = [
-  { title: 'Cozy Fantasy Village', count: '125 artworks', image: villageImage },
-  { title: 'Bathroom Portraits', count: '98 artworks', image: bathroomImage },
-  { title: 'Space Adventures', count: '87 artworks', image: spaceImage },
-  { title: 'Beach Days', count: '76 artworks', image: beachImage },
-  { title: 'Christmas Magic', count: '63 artworks', image: christmasImage },
+  {
+    title: 'Cozy Fantasy Village',
+    slug: 'cozy-fantasy-village',
+    count: '125 artworks',
+    image: villageImage,
+  },
+  {
+    title: 'Bathroom Portraits',
+    slug: 'bathroom-portraits',
+    count: '98 artworks',
+    image: bathroomImage,
+  },
+  {
+    title: 'Space Adventures',
+    slug: 'space-adventures',
+    count: '87 artworks',
+    image: spaceImage,
+  },
+  {
+    title: 'Beach Days',
+    slug: 'beach-days',
+    count: '76 artworks',
+    image: beachImage,
+  },
+  {
+    title: 'Christmas Magic',
+    slug: 'christmas-magic',
+    count: '63 artworks',
+    image: christmasImage,
+  },
 ]
 
 export const benefits = [
