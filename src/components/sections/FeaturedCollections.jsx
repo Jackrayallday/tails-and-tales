@@ -8,13 +8,14 @@ function FeaturedCollections() {
 
       <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-5">
         {collections.map((collection, index) => (
-          <article
-            className="relative min-h-72 overflow-hidden rounded-xl bg-slate-900 shadow-lg shadow-slate-950/15"
-            key={collection.title}
+          <a
+            className="group relative block min-h-72 overflow-hidden rounded-xl bg-slate-900 shadow-lg shadow-slate-950/15 transition hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-950/20 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-4"
+            href={`/collections/${collection.slug}`}
+            key={collection.slug}
           >
             {collection.image ? (
               <img
-                className="absolute inset-0 h-full w-full object-cover object-[75%_center]"
+                className="absolute inset-0 h-full w-full object-cover object-[75%_center] transition group-hover:scale-105"
                 src={collection.image}
                 alt={`${collection.title} collection`}
               />
@@ -31,7 +32,7 @@ function FeaturedCollections() {
               </h3>
               <p className="mt-2 font-semibold">{collection.count}</p>
             </div>
-          </article>
+          </a>
         ))}
       </div>
     </section>
