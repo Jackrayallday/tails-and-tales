@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom'
 import { artworks } from '../data/artworks.js'
 import { collections } from '../data/collections.js'
+import ArtworkBrowse from '../components/gallery/ArtworkBrowse.jsx'
 import NotFoundPage from './NotFoundPage.jsx'
 
 function CollectionDetailPage() {
@@ -38,32 +39,12 @@ function CollectionDetailPage() {
             {collection.theme} | {collection.count}
           </p>
 
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {collectionArtworks.map((artwork) => (
-              <Link
-                className="group overflow-hidden rounded-xl bg-white text-slate-950 shadow-lg shadow-slate-950/10 transition hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-950/15 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-4"
-                to={`/artworks/${artwork.slug}`}
-                key={artwork.slug}
-              >
-                <img
-                  className="aspect-[4/3] w-full object-cover transition group-hover:scale-105"
-                  src={artwork.image}
-                  alt={`${artwork.title} artwork`}
-                />
-                <div className="p-5">
-                  <p className="text-sm font-bold uppercase tracking-wide text-orange-700">
-                    ${artwork.price}
-                  </p>
-                  <h2 className="mt-2 text-xl font-bold text-slate-950">
-                    {artwork.title}
-                  </h2>
-                  <p className="mt-3 text-sm leading-6 text-slate-600">
-                    {artwork.description}
-                  </p>
-                </div>
-              </Link>
-            ))}
-          </div>
+          <ArtworkBrowse
+            artworks={collectionArtworks}
+            title={`${collection.title} artwork`}
+            description="Filter this collection by breed, style, and price."
+            lockedCollection={collection.slug}
+          />
         </div>
       </div>
     </main>
