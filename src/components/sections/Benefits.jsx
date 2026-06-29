@@ -1,4 +1,4 @@
-import { benefits } from '../../data/galleryData.js'
+import { benefits } from '../../data/benefits.js'
 import SimpleIcon from '../ui/SimpleIcon.jsx'
 
 function Benefits() {

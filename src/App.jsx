@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom'
 import Footer from './components/layout/Footer.jsx'
 import Header from './components/layout/Header.jsx'
 import BasicPage from './pages/BasicPage.jsx'
+import ArtworkDetailPage from './pages/ArtworkDetailPage.jsx'
 import BreedDetailPage from './pages/BreedDetailPage.jsx'
 import BreedsPage from './pages/BreedsPage.jsx'
 import CollectionDetailPage from './pages/CollectionDetailPage.jsx'
@@ -19,6 +20,7 @@ function App() {
         <Route path="/breeds/:slug" element={<BreedDetailPage />} />
         <Route path="/collections" element={<CollectionsPage />} />
         <Route path="/collections/:slug" element={<CollectionDetailPage />} />
+        <Route path="/artworks/:slug" element={<ArtworkDetailPage />} />
         <Route
           path="/how-it-works"
           element={
