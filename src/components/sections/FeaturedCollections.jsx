@@ -1,16 +1,21 @@
+import { Link } from 'react-router-dom'
 import { collections } from '../../data/galleryData.js'
 import SectionHeader from '../ui/SectionHeader.jsx'
 
 function FeaturedCollections() {
   return (
     <section className="mx-auto max-w-7xl border-t border-slate-200 px-6 py-9 lg:px-10">
-      <SectionHeader title="Featured Collections" action="View all collections" />
+      <SectionHeader
+        title="Featured Collections"
+        action="View all collections"
+        href="/collections"
+      />
 
       <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-5">
         {collections.map((collection, index) => (
-          <a
+          <Link
             className="group relative block min-h-72 overflow-hidden rounded-xl bg-slate-900 shadow-lg shadow-slate-950/15 transition hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-950/20 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-4"
-            href={`/collections/${collection.slug}`}
+            to={`/collections/${collection.slug}`}
             key={collection.slug}
           >
             {collection.image ? (
@@ -32,7 +37,7 @@ function FeaturedCollections() {
               </h3>
               <p className="mt-2 font-semibold">{collection.count}</p>
             </div>
-          </a>
+          </Link>
         ))}
       </div>
     </section>

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import lineupImage from '../../assets/lineup.png'
 import { SearchIcon } from '../ui/Icons.jsx'
 
@@ -26,9 +27,9 @@ function BreedSearch() {
 
         <p className="mt-6 text-slate-700">
           or{' '}
-          <a className="font-medium text-orange-700" href="/breeds">
+          <Link className="font-medium text-orange-700" to="/breeds">
             browse all breeds
-          </a>
+          </Link>
         </p>
       </div>
 
