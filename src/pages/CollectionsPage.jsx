@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom'
+import ArtworkBrowse from '../components/gallery/ArtworkBrowse.jsx'
+import { artworks } from '../data/artworks.js'
 import { collections } from '../data/collections.js'
 
 function CollectionsPage() {
@@ -36,6 +38,12 @@ function CollectionsPage() {
             </Link>
           ))}
         </div>
+
+        <ArtworkBrowse
+          artworks={artworks}
+          title="All artwork"
+          description="Browse every available piece by breed, collection, style, price, and sort order."
+        />
       </div>
     </main>
   )
