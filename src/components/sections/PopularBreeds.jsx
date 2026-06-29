@@ -1,16 +1,17 @@
+import { Link } from 'react-router-dom'
 import { popularBreeds } from '../../data/galleryData.js'
 import SectionHeader from '../ui/SectionHeader.jsx'
 
 function PopularBreeds() {
   return (
     <section className="mx-auto max-w-7xl border-t border-slate-200 px-6 py-9 lg:px-10">
-      <SectionHeader title="Popular Breeds" action="View all breeds" />
+      <SectionHeader title="Popular Breeds" action="View all breeds" href="/breeds" />
 
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
         {popularBreeds.map((breed, index) => (
-          <a
+          <Link
             className="group block overflow-hidden rounded-xl bg-white text-slate-950 shadow-lg shadow-slate-950/10 transition hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-950/15 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-4"
-            href={`/breeds/${breed.slug}`}
+            to={`/breeds/${breed.slug}`}
             key={breed.slug}
           >
             {breed.image ? (
@@ -38,7 +39,7 @@ function PopularBreeds() {
                 </span>
               </span>
             </div>
-          </a>
+          </Link>
         ))}
       </div>
     </section>
