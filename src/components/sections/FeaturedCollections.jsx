@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { collections } from '../../data/galleryData.js'
+import { collections } from '../../data/collections.js'
 import SectionHeader from '../ui/SectionHeader.jsx'
 
 function FeaturedCollections() {

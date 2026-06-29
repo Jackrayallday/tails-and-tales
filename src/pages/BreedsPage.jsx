@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { popularBreeds } from '../data/galleryData.js'
+import { breeds } from '../data/breeds.js'
 
 function BreedsPage() {
   return (
@@ -15,7 +15,7 @@ function BreedsPage() {
         </div>
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {popularBreeds.map((breed) => (
+          {breeds.map((breed) => (
             <Link
               className="group overflow-hidden rounded-xl bg-white text-slate-950 shadow-lg shadow-slate-950/10 transition hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-950/15 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-4"
               to={`/breeds/${breed.slug}`}
@@ -28,6 +28,9 @@ function BreedsPage() {
               />
               <div className="p-5">
                 <h2 className="text-xl font-bold">{breed.name}</h2>
+                <p className="mt-2 text-sm leading-6 text-slate-600">
+                  {breed.size} | {breed.temperament.slice(0, 2).join(', ')}
+                </p>
                 <p className="mt-3 text-sm font-semibold text-orange-700">
                   Explore breed <span aria-hidden="true">-&gt;</span>
                 </p>

@@ -1,5 +1,6 @@
 import { Link, useParams } from 'react-router-dom'
-import { collections } from '../data/galleryData.js'
+import { artworks } from '../data/artworks.js'
+import { collections } from '../data/collections.js'
 import NotFoundPage from './NotFoundPage.jsx'
 
 function CollectionDetailPage() {
@@ -10,9 +11,13 @@ function CollectionDetailPage() {
     return <NotFoundPage />
   }
 
+  const collectionArtworks = artworks.filter(
+    (artwork) => artwork.collectionSlug === collection.slug,
+  )
+
   return (
     <main className="flex-1 bg-[#fbf7ef] px-6 pb-16 pt-36 lg:px-10">
-      <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+      <div className="mx-auto max-w-7xl">
         <div>
           <Link
             className="mb-6 inline-block font-semibold text-orange-700"
@@ -27,22 +32,39 @@ function CollectionDetailPage() {
             {collection.title}
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-8 text-slate-700">
-            This collection route is ready for themed artwork and products. The
-            route is powered by the slug:{' '}
-            <span className="font-semibold text-slate-950">
-              {collection.slug}
-            </span>.
+            {collection.description}
           </p>
           <p className="mt-4 font-semibold text-slate-950">
-            {collection.count}
+            {collection.theme} | {collection.count}
           </p>
-        </div>
 
-        <img
-          className="w-full rounded-xl object-cover shadow-xl shadow-slate-950/15"
-          src={collection.image}
-          alt={`${collection.title} collection`}
-        />
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {collectionArtworks.map((artwork) => (
+              <Link
+                className="group overflow-hidden rounded-xl bg-white text-slate-950 shadow-lg shadow-slate-950/10 transition hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-950/15 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-4"
+                to={`/artworks/${artwork.slug}`}
+                key={artwork.slug}
+              >
+                <img
+                  className="aspect-[4/3] w-full object-cover transition group-hover:scale-105"
+                  src={artwork.image}
+                  alt={`${artwork.title} artwork`}
+                />
+                <div className="p-5">
+                  <p className="text-sm font-bold uppercase tracking-wide text-orange-700">
+                    ${artwork.price}
+                  </p>
+                  <h2 className="mt-2 text-xl font-bold text-slate-950">
+                    {artwork.title}
+                  </h2>
+                  <p className="mt-3 text-sm leading-6 text-slate-600">
+                    {artwork.description}
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
       </div>
     </main>
   )

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { collections } from '../data/galleryData.js'
+import { collections } from '../data/collections.js'
 
 function CollectionsPage() {
   return (
@@ -29,7 +29,9 @@ function CollectionsPage() {
               <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/15 to-transparent" />
               <div className="relative flex h-full flex-col justify-end p-6 text-white">
                 <h2 className="text-3xl font-bold">{collection.title}</h2>
-                <p className="mt-2 font-semibold">{collection.count}</p>
+                <p className="mt-2 font-semibold">
+                  {collection.theme} | {collection.count}
+                </p>
               </div>
             </Link>
           ))}

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { popularBreeds } from '../../data/galleryData.js'
+import { popularBreeds } from '../../data/breeds.js'
 import SectionHeader from '../ui/SectionHeader.jsx'
 
 function PopularBreeds() {
