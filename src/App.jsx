@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
 import Footer from './components/layout/Footer.jsx'
 import Header from './components/layout/Header.jsx'
+import ScrollToTop from './components/routing/ScrollToTop.jsx'
 import BasicPage from './pages/BasicPage.jsx'
 import ArtworkDetailPage from './pages/ArtworkDetailPage.jsx'
 import BreedDetailPage from './pages/BreedDetailPage.jsx'
@@ -14,6 +15,7 @@ function App() {
   return (
     <div className="flex min-h-screen flex-col bg-[#fbf7ef] text-slate-800">
       <Header />
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<StoreHome />} />
         <Route path="/breeds" element={<BreedsPage />} />
