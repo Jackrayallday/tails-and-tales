@@ -8,10 +8,10 @@ function StoreHome() {
   return (
     <main className="flex-1 bg-[#fbf7ef]">
       <HeroSection />
+      <Benefits />
       <BreedSearch />
       <PopularBreeds />
       <FeaturedCollections />
-      <Benefits />
     </main>
   )
 }
