@@ -1,6 +1,13 @@
 import { Link, NavLink } from 'react-router-dom'
 import { HeartIcon, PawIcon, UserIcon } from '../ui/Icons.jsx'
 
+const navLinkClassName = ({ isActive }) =>
+  `rounded-full px-4 py-2 transition ${
+    isActive
+      ? 'bg-slate-950 text-white shadow-md shadow-slate-950/10'
+      : 'text-slate-950 hover:bg-slate-950 hover:text-white'
+  }`
+
 function Header() {
   return (
     <header className="absolute inset-x-0 top-0 z-20 bg-[#fbf7ef]/45 shadow-sm shadow-white/30 backdrop-blur-md">
@@ -18,19 +25,19 @@ function Header() {
         </Link>
 
         <nav
-          className="flex flex-wrap gap-5 text-sm font-semibold text-slate-950 md:gap-9"
+          className="flex flex-wrap gap-2 text-sm font-semibold text-slate-950 md:gap-3"
           aria-label="Main navigation"
         >
-          <NavLink className="hover:text-slate-950" to="/breeds">
+          <NavLink className={navLinkClassName} to="/breeds">
             Breeds
           </NavLink>
-          <NavLink className="hover:text-slate-950" to="/collections">
+          <NavLink className={navLinkClassName} to="/collections">
             Collections
           </NavLink>
-          <NavLink className="hover:text-slate-950" to="/how-it-works">
+          <NavLink className={navLinkClassName} to="/how-it-works">
             How It Works
           </NavLink>
-          <NavLink className="hover:text-slate-950" to="/about">
+          <NavLink className={navLinkClassName} to="/about">
             About
           </NavLink>
         </nav>
