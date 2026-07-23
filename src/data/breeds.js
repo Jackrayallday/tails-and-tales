@@ -26,7 +26,7 @@ export const breeds = [
     temperament: ['Friendly', 'Devoted', 'Gentle'],
     size: 'Large',
     collectionIds: ['fantasy', 'christmas-magic'],
-    featuredArtwork: null,
+    featuredArtwork: 'golden-retriever-cartographer',
   },
   {
     name: 'French Bulldog',
@@ -36,7 +36,7 @@ export const breeds = [
       'Compact, charming, and full of personality, French bulldogs shine in playful scenes with a little attitude.',
     temperament: ['Charming', 'Adaptable', 'Alert'],
     size: 'Small',
-    collectionIds: ['bathroom-portraits', 'space-adventures'],
+    collectionIds: ['fantasy', 'bathroom-portraits', 'space-adventures'],
     featuredArtwork: 'french-bulldog-morning-news',
   },
   {
@@ -47,7 +47,7 @@ export const breeds = [
       'A bold, intelligent breed with a cinematic presence suited to epic adventures and loyal guardian portraits.',
     temperament: ['Loyal', 'Courageous', 'Smart'],
     size: 'Large',
-    collectionIds: ['christmas-magic', 'space-adventures'],
+    collectionIds: ['fantasy', 'christmas-magic', 'space-adventures'],
     featuredArtwork: 'saint-nick-shepherd',
   },
   {
@@ -58,7 +58,7 @@ export const breeds = [
       'Elegant and bright, poodles work beautifully in refined portraits, magical worlds, and colorful scenes.',
     temperament: ['Elegant', 'Active', 'Bright'],
     size: 'Small to Standard',
-    collectionIds: ['beach-days', 'bathroom-portraits'],
+    collectionIds: ['fantasy', 'beach-days', 'bathroom-portraits'],
     featuredArtwork: 'poodle-beach-cocktail',
   },
   {
