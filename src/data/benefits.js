@@ -2,7 +2,7 @@ export const benefits = [
   {
     title: 'Choose your breed',
     description: 'Start with the dog you love most.',
-    href: '/breeds',
+    href: '/start',
   },
   {
     title: 'Pick a collection',

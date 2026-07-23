@@ -9,6 +9,7 @@ import BreedsPage from './pages/BreedsPage.jsx'
 import CollectionDetailPage from './pages/CollectionDetailPage.jsx'
 import CollectionsPage from './pages/CollectionsPage.jsx'
 import NotFoundPage from './pages/NotFoundPage.jsx'
+import StartPage from './pages/StartPage.jsx'
 import StoreHome from './pages/StoreHome.jsx'
 
 function App() {
@@ -41,15 +42,7 @@ function App() {
             />
           }
         />
-        <Route
-          path="/start"
-          element={
-            <BasicPage
-              title="Start Your Story"
-              description="This flow will become the starting point for choosing a breed, selecting artwork, and checking out."
-            />
-          }
-        />
+        <Route path="/start" element={<StartPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />

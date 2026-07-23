@@ -22,6 +22,9 @@ function ArtworkDetailPage() {
   const collection = collections.find(
     (item) => item.slug === artwork.collectionSlug,
   )
+  const seriesArtworks = artwork.seriesSlug
+    ? artworks.filter((item) => item.seriesSlug === artwork.seriesSlug)
+    : []
 
   return (
     <main className="flex-1 bg-[#fbf7ef] px-6 pb-16 pt-36 lg:px-10">
@@ -54,6 +57,36 @@ function ArtworkDetailPage() {
           <p className="mt-4 text-2xl font-bold text-slate-950">
             ${artwork.price}
           </p>
+
+          {seriesArtworks.length > 1 ? (
+            <div className="mt-8">
+              <h2 className="text-xl font-bold text-slate-950">Choose a breed</h2>
+              <div className="mt-4 flex flex-wrap gap-3">
+                {seriesArtworks.map((variant) => {
+                  const variantBreed = breeds.find(
+                    (item) => item.slug === variant.breedSlug,
+                  )
+
+                  return (
+                    <Link
+                      className={`rounded-full border-2 px-4 py-2 text-sm font-bold transition ${
+                        variant.slug === artwork.slug
+                          ? 'border-slate-950 bg-slate-950 text-white'
+                          : 'border-slate-200 bg-white text-slate-950 hover:border-orange-400'
+                      }`}
+                      to={`/artworks/${variant.slug}`}
+                      aria-current={
+                        variant.slug === artwork.slug ? 'page' : undefined
+                      }
+                      key={variant.slug}
+                    >
+                      {variantBreed?.name ?? 'Breed variant'}
+                    </Link>
+                  )
+                })}
+              </div>
+            </div>
+          ) : null}
 
           <div className="mt-8">
             <h2 className="text-xl font-bold text-slate-950">Print size</h2>

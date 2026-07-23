@@ -11,8 +11,8 @@ export const collections = [
     description:
       'Mythic quests, wizard scenes, storybook villages, and legendary portraits for dogs with main-character magic.',
     theme: 'Fantasy',
-    artworkCount: 5,
-    count: '5 artworks',
+    artworkCount: 10,
+    count: '10 artworks',
     image: villageImage,
     featuredImages: [villageImage],
   },

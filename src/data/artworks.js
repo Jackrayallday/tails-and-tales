@@ -4,11 +4,96 @@ import christmasImage from '../assets/collections/christmas.png'
 import spaceImage from '../assets/collections/space.png'
 import villageImage from '../assets/collections/village.png'
 import airedaleGotImage from '../assets/artworks/fantasy/airdale-GOT.png'
+import airedaleMapImage from '../assets/artworks/fantasy/airdale-map.png'
 import swordClashImage from '../assets/artworks/fantasy/airdale-german-shepard-sword-clash.png'
 import corgiWizardImage from '../assets/artworks/fantasy/corgi-wizard.png'
+import frenchMapImage from '../assets/artworks/fantasy/french-map.png'
+import germanMapImage from '../assets/artworks/fantasy/german-map.png'
+import goldenMapImage from '../assets/artworks/fantasy/golden-map.png'
 import poodleBroomImage from '../assets/artworks/fantasy/poodle-flying-broom.png'
+import poodleMapImage from '../assets/artworks/fantasy/poodle-map.png'
 
 export const artworks = [
+  {
+    title: 'Airedale Cartographer',
+    slug: 'airedale-cartographer',
+    breedSlug: 'airedale-terrier',
+    collectionSlug: 'fantasy',
+    seriesSlug: 'royal-cartographer',
+    seriesTitle: 'The Royal Cartographer',
+    style: 'Storybook Fantasy',
+    price: 34,
+    createdAt: '2026-07-23',
+    popularity: 91,
+    image: airedaleMapImage,
+    description:
+      'An Airedale cartographer charts distant kingdoms from a candlelit medieval map room.',
+    tags: ['fantasy', 'cartographer', 'map'],
+  },
+  {
+    title: 'French Bulldog Cartographer',
+    slug: 'french-bulldog-cartographer',
+    breedSlug: 'french-bulldog',
+    collectionSlug: 'fantasy',
+    seriesSlug: 'royal-cartographer',
+    seriesTitle: 'The Royal Cartographer',
+    style: 'Storybook Fantasy',
+    price: 34,
+    createdAt: '2026-07-23',
+    popularity: 90,
+    image: frenchMapImage,
+    description:
+      'A French bulldog studies ancient routes and compass bearings in a warm tower map room.',
+    tags: ['fantasy', 'cartographer', 'map'],
+  },
+  {
+    title: 'German Shepherd Cartographer',
+    slug: 'german-shepherd-cartographer',
+    breedSlug: 'german-shepherd',
+    collectionSlug: 'fantasy',
+    seriesSlug: 'royal-cartographer',
+    seriesTitle: 'The Royal Cartographer',
+    style: 'Storybook Fantasy',
+    price: 34,
+    createdAt: '2026-07-23',
+    popularity: 93,
+    image: germanMapImage,
+    description:
+      'A watchful German shepherd plans the next expedition among maps, scrolls, and brass instruments.',
+    tags: ['fantasy', 'cartographer', 'map'],
+  },
+  {
+    title: 'Golden Retriever Cartographer',
+    slug: 'golden-retriever-cartographer',
+    breedSlug: 'golden-retriever',
+    collectionSlug: 'fantasy',
+    seriesSlug: 'royal-cartographer',
+    seriesTitle: 'The Royal Cartographer',
+    style: 'Storybook Fantasy',
+    price: 34,
+    createdAt: '2026-07-23',
+    popularity: 95,
+    image: goldenMapImage,
+    description:
+      'A golden retriever prepares a cheerful journey from a map-filled castle study at sunset.',
+    tags: ['fantasy', 'cartographer', 'map'],
+  },
+  {
+    title: 'Poodle Cartographer',
+    slug: 'poodle-cartographer',
+    breedSlug: 'poodle',
+    collectionSlug: 'fantasy',
+    seriesSlug: 'royal-cartographer',
+    seriesTitle: 'The Royal Cartographer',
+    style: 'Storybook Fantasy',
+    price: 34,
+    createdAt: '2026-07-23',
+    popularity: 92,
+    image: poodleMapImage,
+    description:
+      'An elegant poodle surveys an ancient map in a richly detailed fantasy tower.',
+    tags: ['fantasy', 'cartographer', 'map'],
+  },
   {
     title: 'Airedale Village Guardian',
     slug: 'airedale-village-guardian',

@@ -102,6 +102,23 @@ function ArtworkBrowse({
     return getSortedArtworks(filtered, sort)
   }, [artworks, breedFilter, collectionFilter, priceFilter, sort, styleFilter])
 
+  const artworkGroups = useMemo(() => {
+    const groups = new Map()
+
+    filteredArtworks.forEach((artwork) => {
+      const groupKey = artwork.seriesSlug ?? artwork.slug
+      const existingGroup = groups.get(groupKey)
+
+      if (existingGroup) {
+        existingGroup.push(artwork)
+      } else {
+        groups.set(groupKey, [artwork])
+      }
+    })
+
+    return [...groups.values()]
+  }, [filteredArtworks])
+
   return (
     <section className="mt-12" aria-labelledby="artwork-browse-title">
       <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
@@ -122,7 +139,8 @@ function ArtworkBrowse({
           ) : null}
         </div>
         <p className="text-sm font-bold text-slate-500">
-          {filteredArtworks.length} of {artworks.length} shown
+          {artworkGroups.length} designs from {filteredArtworks.length}{' '}
+          artworks
         </p>
       </div>
 
@@ -168,39 +186,54 @@ function ArtworkBrowse({
 
       {filteredArtworks.length ? (
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {filteredArtworks.map((artwork) => (
-            <Link
-              className="group overflow-hidden rounded-xl bg-white text-slate-950 shadow-lg shadow-slate-950/10 transition hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-950/15 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-4"
-              to={`/artworks/${artwork.slug}`}
-              key={artwork.slug}
-            >
-              <img
-                className="aspect-[4/3] w-full object-cover transition group-hover:scale-105"
-                src={artwork.image}
-                alt={`${artwork.title} artwork`}
-              />
-              <div className="p-5">
-                <div className="flex items-start justify-between gap-3">
-                  <p className="text-xs font-bold uppercase tracking-wide text-orange-700">
-                    {artwork.style}
+          {artworkGroups.map((group) => {
+            const artwork = group[0]
+            const isSeries = group.length > 1
+
+            return (
+              <Link
+                className="group overflow-hidden rounded-xl bg-white text-slate-950 shadow-lg shadow-slate-950/10 transition hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-950/15 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-4"
+                to={`/artworks/${artwork.slug}`}
+                key={artwork.seriesSlug ?? artwork.slug}
+              >
+                <div className="relative overflow-hidden">
+                  <img
+                    className="aspect-[4/3] w-full object-cover transition group-hover:scale-105"
+                    src={artwork.image}
+                    alt={`${artwork.seriesTitle ?? artwork.title} artwork`}
+                  />
+                  {isSeries ? (
+                    <span className="absolute bottom-3 left-3 rounded-full bg-slate-950/90 px-3 py-1.5 text-xs font-bold text-white shadow-lg backdrop-blur">
+                      {group.length} breeds available
+                    </span>
+                  ) : null}
+                </div>
+                <div className="p-5">
+                  <div className="flex items-start justify-between gap-3">
+                    <p className="text-xs font-bold uppercase tracking-wide text-orange-700">
+                      {artwork.style}
+                    </p>
+                    <p className="text-sm font-bold text-slate-950">
+                      ${artwork.price}
+                    </p>
+                  </div>
+                  <h3 className="mt-2 text-xl font-bold text-slate-950">
+                    {artwork.seriesTitle ?? artwork.title}
+                  </h3>
+                  <p className="mt-2 text-sm font-semibold text-slate-500">
+                    {isSeries
+                      ? `${group.length} breed variants`
+                      : `${breedNames.get(artwork.breedSlug)} | ${collectionNames.get(artwork.collectionSlug)}`}
                   </p>
-                  <p className="text-sm font-bold text-slate-950">
-                    ${artwork.price}
+                  <p className="mt-3 text-sm leading-6 text-slate-600">
+                    {isSeries
+                      ? 'A candlelit fantasy map room, available with your favorite breed as the royal cartographer.'
+                      : artwork.description}
                   </p>
                 </div>
-                <h3 className="mt-2 text-xl font-bold text-slate-950">
-                  {artwork.title}
-                </h3>
-                <p className="mt-2 text-sm font-semibold text-slate-500">
-                  {breedNames.get(artwork.breedSlug)} |{' '}
-                  {collectionNames.get(artwork.collectionSlug)}
-                </p>
-                <p className="mt-3 text-sm leading-6 text-slate-600">
-                  {artwork.description}
-                </p>
-              </div>
-            </Link>
-          ))}
+              </Link>
+            )
+          })}
         </div>
       ) : (
         <div className="mt-8 rounded-xl bg-white p-8 text-center shadow-lg shadow-slate-950/10">
