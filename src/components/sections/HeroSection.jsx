@@ -11,7 +11,7 @@ const heroImages = [
   },
   {
     src: heroImage2,
-    alt: 'Dog artwork displayed in a cozy fantasy-themed room',
+    alt: 'Dog artwork over a bathroom',
   },
   {
     src: heroImage3,

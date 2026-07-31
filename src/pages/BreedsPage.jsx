@@ -28,9 +28,13 @@ function BreedsPage() {
               />
               <div className="p-5">
                 <h2 className="text-xl font-bold">{breed.name}</h2>
-                <p className="mt-2 text-sm leading-6 text-slate-600">
-                  {breed.size} | {breed.temperament.slice(0, 2).join(', ')}
-                </p>
+                {breed.size || breed.temperament?.length ? (
+                  <p className="mt-2 text-sm leading-6 text-slate-600">
+                    {[breed.size, breed.temperament?.slice(0, 2).join(', ')]
+                      .filter(Boolean)
+                      .join(' | ')}
+                  </p>
+                ) : null}
                 <p className="mt-3 text-sm font-semibold text-orange-700">
                   Explore breed <span aria-hidden="true">-&gt;</span>
                 </p>

@@ -15,7 +15,7 @@ function BreedDetailPage() {
 
   const breedArtworks = artworks.filter((artwork) => artwork.breedSlug === breed.slug)
   const breedCollections = collections.filter((collection) =>
-    breed.collectionIds.includes(collection.slug),
+    breed.collectionIds?.includes(collection.slug),
   )
 
   return (
@@ -39,14 +39,19 @@ function BreedDetailPage() {
               Breed Gallery
             </p>
             <h1 className="text-5xl font-bold text-slate-950">{breed.name}</h1>
-            <p className="mt-6 max-w-xl text-lg leading-8 text-slate-700">
-              {breed.description}
-            </p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <span className="rounded-full bg-white px-4 py-2 text-sm font-bold text-slate-950 shadow-sm">
-                {breed.size}
-              </span>
-              {breed.temperament.map((trait) => (
+            {breed.description ? (
+              <p className="mt-6 max-w-xl text-lg leading-8 text-slate-700">
+                {breed.description}
+              </p>
+            ) : null}
+            {breed.size || breed.temperament?.length ? (
+              <div className="mt-6 flex flex-wrap gap-3">
+                {breed.size ? (
+                  <span className="rounded-full bg-white px-4 py-2 text-sm font-bold text-slate-950 shadow-sm">
+                    {breed.size}
+                  </span>
+                ) : null}
+                {breed.temperament?.map((trait) => (
                 <span
                   className="rounded-full bg-orange-100 px-4 py-2 text-sm font-bold text-orange-800"
                   key={trait}
@@ -54,9 +59,11 @@ function BreedDetailPage() {
                   {trait}
                 </span>
               ))}
-            </div>
+              </div>
+            ) : null}
 
-            <div className="mt-8">
+            {breedCollections.length ? (
+              <div className="mt-8">
               <h2 className="text-xl font-bold text-slate-950">
                 Available collections
               </h2>
@@ -71,7 +78,8 @@ function BreedDetailPage() {
                   </Link>
                 ))}
               </div>
-            </div>
+              </div>
+            ) : null}
           </div>
         </div>
 
