@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { artworks } from '../data/artworks.js'
 import { breeds } from '../data/breeds.js'
 import { collections } from '../data/collections.js'
@@ -10,6 +10,7 @@ const printFormats = ['Fine art print', 'Framed print', 'Canvas']
 
 function ArtworkDetailPage() {
   const { slug } = useParams()
+  const navigate = useNavigate()
   const artwork = artworks.find((item) => item.slug === slug)
   const [selectedSize, setSelectedSize] = useState(printSizes[0])
   const [selectedFormat, setSelectedFormat] = useState(printFormats[0])
@@ -60,31 +61,51 @@ function ArtworkDetailPage() {
 
           {seriesArtworks.length > 1 ? (
             <div className="mt-8">
-              <h2 className="text-xl font-bold text-slate-950">Choose a breed</h2>
-              <div className="mt-4 flex flex-wrap gap-3">
-                {seriesArtworks.map((variant) => {
-                  const variantBreed = breeds.find(
-                    (item) => item.slug === variant.breedSlug,
-                  )
+              <label
+                className="block text-xl font-bold text-slate-950"
+                htmlFor="breed-variant"
+              >
+                Choose a breed
+              </label>
+              <div className="relative mt-4 max-w-md">
+                <select
+                  className="h-14 w-full appearance-none rounded-xl border-2 border-slate-200 bg-white px-4 pr-12 text-base font-bold text-slate-950 shadow-md shadow-slate-950/5 transition hover:border-orange-400 focus:border-orange-500 focus:outline-none focus:ring-4 focus:ring-orange-200/70"
+                  id="breed-variant"
+                  value={artwork.slug}
+                  onChange={(event) => navigate(`/artworks/${event.target.value}`)}
+                >
+                  {seriesArtworks.map((variant) => {
+                    const variantBreed = breeds.find(
+                      (item) => item.slug === variant.breedSlug,
+                    )
 
-                  return (
-                    <Link
-                      className={`rounded-full border-2 px-4 py-2 text-sm font-bold transition ${
-                        variant.slug === artwork.slug
-                          ? 'border-slate-950 bg-slate-950 text-white'
-                          : 'border-slate-200 bg-white text-slate-950 hover:border-orange-400'
-                      }`}
-                      to={`/artworks/${variant.slug}`}
-                      aria-current={
-                        variant.slug === artwork.slug ? 'page' : undefined
-                      }
-                      key={variant.slug}
-                    >
-                      {variantBreed?.name ?? 'Breed variant'}
-                    </Link>
-                  )
-                })}
+                    return (
+                      <option value={variant.slug} key={variant.slug}>
+                        {variant.variantLabel ??
+                          variantBreed?.name ??
+                          'Breed variant'}
+                      </option>
+                    )
+                  })}
+                </select>
+                <span
+                  className="pointer-events-none absolute inset-y-0 right-4 flex items-center text-orange-700"
+                  aria-hidden="true"
+                >
+                  <svg
+                    className="h-5 w-5"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path d="m5 7.5 5 5 5-5" />
+                  </svg>
+                </span>
               </div>
+              <p className="mt-2 text-sm text-slate-600">
+                {seriesArtworks.length} breed options available
+              </p>
             </div>
           ) : null}
 

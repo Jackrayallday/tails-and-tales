@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
-import heroImage from '../../assets/hero.png'
-import heroImage2 from '../../assets/hero2.png'
-import heroImage3 from '../../assets/hero3.png'
+import { mediaUrl } from '../../lib/media.js'
+
+const heroImage = mediaUrl('site/hero', 'detail')
+const heroImage2 = mediaUrl('site/hero2', 'detail')
+const heroImage3 = mediaUrl('site/hero3', 'detail')
 import { PawIcon, SearchIcon } from '../ui/Icons.jsx'
 
 const heroImages = [

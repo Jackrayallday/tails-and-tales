@@ -1,19 +1,18 @@
-import bathroomImage from '../assets/collections/bathroom.png'
-import beachImage from '../assets/collections/beach.png'
-import christmasImage from '../assets/collections/christmas.png'
-import spaceImage from '../assets/collections/space.png'
-import villageImage from '../assets/collections/village.png'
-import airedaleGotImage from '../assets/artworks/fantasy/airdale-GOT.png'
-import airedaleMapImage from '../assets/artworks/fantasy/airdale-map.png'
-import swordClashImage from '../assets/artworks/fantasy/airdale-german-shepard-sword-clash.png'
-import corgiWizardImage from '../assets/artworks/fantasy/corgi-wizard.png'
-import frenchMapImage from '../assets/artworks/fantasy/french-map.png'
-import germanMapImage from '../assets/artworks/fantasy/german-map.png'
-import goldenMapImage from '../assets/artworks/fantasy/golden-map.png'
-import poodleBroomImage from '../assets/artworks/fantasy/poodle-flying-broom.png'
-import poodleMapImage from '../assets/artworks/fantasy/poodle-map.png'
+import { mediaUrl } from '../lib/media.js'
+import { seriesArtworks } from './seriesArtworks.js'
+const airedaleGotImage = mediaUrl('artworks/fantasy/airdale-GOT')
+const airedaleMapImage = mediaUrl('artworks/fantasy/airdale-map')
+const swordClashImage = mediaUrl(
+  'artworks/fantasy/airdale-german-shepard-sword-clash',
+)
+const corgiWizardImage = mediaUrl('artworks/fantasy/corgi-wizard')
+const frenchMapImage = mediaUrl('artworks/fantasy/french-map')
+const germanMapImage = mediaUrl('artworks/fantasy/german-map')
+const goldenMapImage = mediaUrl('artworks/fantasy/golden-map')
+const poodleBroomImage = mediaUrl('artworks/fantasy/poodle-flying-broom')
+const poodleMapImage = mediaUrl('artworks/fantasy/poodle-map')
 
-export const artworks = [
+const featuredArtworks = [
   {
     title: 'Airedale Cartographer',
     slug: 'airedale-cartographer',
@@ -95,20 +94,6 @@ export const artworks = [
     tags: ['fantasy', 'cartographer', 'map'],
   },
   {
-    title: 'Airedale Village Guardian',
-    slug: 'airedale-village-guardian',
-    breedSlug: 'airedale-terrier',
-    collectionSlug: 'fantasy',
-    style: 'Storybook Fantasy',
-    price: 34,
-    createdAt: '2026-06-25',
-    popularity: 92,
-    image: villageImage,
-    description:
-      'A group of Airedales tucked into a cozy Shire-inspired village scene.',
-    tags: ['fantasy', 'village', 'shire'],
-  },
-  {
     title: 'Airedale Throne Watch',
     slug: 'airedale-throne-watch',
     breedSlug: 'airedale-terrier',
@@ -164,60 +149,6 @@ export const artworks = [
       'A poodle soaring through a fantasy sky on a flying broom.',
     tags: ['fantasy', 'broom', 'magic'],
   },
-  {
-    title: 'French Bulldog Morning News',
-    slug: 'french-bulldog-morning-news',
-    breedSlug: 'french-bulldog',
-    collectionSlug: 'bathroom-portraits',
-    style: 'Comic Portrait',
-    price: 29,
-    createdAt: '2026-06-22',
-    popularity: 84,
-    image: bathroomImage,
-    description:
-      'A French bulldog reading the news in a playful bathroom portrait.',
-    tags: ['bathroom', 'funny', 'newspaper'],
-  },
-  {
-    title: 'Corgi Star Ranger',
-    slug: 'corgi-star-ranger',
-    breedSlug: 'pembroke-welsh-corgi',
-    collectionSlug: 'space-adventures',
-    style: 'Space Adventure',
-    price: 36,
-    createdAt: '2026-06-29',
-    popularity: 98,
-    image: spaceImage,
-    description:
-      'A cinematic corgi explorer piloting through planets and starlight.',
-    tags: ['space', 'heroic', 'adventure'],
-  },
-  {
-    title: 'Poodle Beach Cocktail',
-    slug: 'poodle-beach-cocktail',
-    breedSlug: 'poodle',
-    collectionSlug: 'beach-days',
-    style: 'Coastal Portrait',
-    price: 31,
-    createdAt: '2026-06-21',
-    popularity: 81,
-    image: beachImage,
-    description:
-      'A poodle relaxing with a cocktail on a sunny beach day.',
-    tags: ['beach', 'cocktail', 'summer'],
-  },
-  {
-    title: 'Saint Nick Shepherd',
-    slug: 'saint-nick-shepherd',
-    breedSlug: 'german-shepherd',
-    collectionSlug: 'christmas-magic',
-    style: 'Holiday Portrait',
-    price: 32,
-    createdAt: '2026-06-20',
-    popularity: 79,
-    image: christmasImage,
-    description:
-      'A German shepherd dressed as old Saint Nick for a festive holiday portrait.',
-    tags: ['holiday', 'christmas', 'saint-nick'],
-  },
 ]
+
+export const artworks = [...featuredArtworks, ...seriesArtworks]

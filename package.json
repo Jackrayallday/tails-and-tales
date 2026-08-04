@@ -7,6 +7,10 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
+    "media:download": "node scripts/download-source-assets.js",
+    "media:optimize": "node scripts/optimize-artwork.js",
+    "media:upload": "node scripts/upload-artwork.js",
+    "media:verify": "node scripts/verify-r2-assets.js",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -17,14 +21,17 @@
     "tailwindcss": "^4.3.1"
   },
   "devDependencies": {
+    "@aws-sdk/client-s3": "^3.1102.0",
     "@eslint/js": "^10.0.1",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.2",
+    "dotenv": "^17.4.2",
     "eslint": "^10.5.0",
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.3",
     "globals": "^17.6.0",
+    "sharp": "^0.35.3",
     "vite": "^8.1.0"
   }
 }

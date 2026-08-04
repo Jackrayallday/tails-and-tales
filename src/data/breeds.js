@@ -1,31 +1,11 @@
-import airedaleImage from '../assets/breeds/airdale.png'
-import australianShepherdImage from '../assets/breeds/australianS.png'
-import beagleImage from '../assets/breeds/beagle.png'
-import berneseMountainDogImage from '../assets/breeds/berneseMD.png'
-import borderCollieImage from '../assets/breeds/borderC.png'
-import boxerImage from '../assets/breeds/boxer.png'
-import cavalierKingCharlesSpanielImage from '../assets/breeds/cavalierKCS.png'
-import chihuahuaImage from '../assets/breeds/chihuahua.png'
-import cockapooImage from '../assets/breeds/cockapoo.png'
-import corgiImage from '../assets/breeds/corgi.png'
-import dachshundImage from '../assets/breeds/dachshund.png'
-import frenchImage from '../assets/breeds/french.png'
-import germanImage from '../assets/breeds/german.png'
-import goldendoodleImage from '../assets/breeds/goldendoodle.png'
-import goldenRetrieverImage from '../assets/breeds/goldenR.png'
-import labradoodleImage from '../assets/breeds/labradoodle.png'
-import labradorRetrieverImage from '../assets/breeds/labradorR.png'
-import poodleImage from '../assets/breeds/poodle.png'
-import shihTzuImage from '../assets/breeds/shihT.png'
-import siberianHuskyImage from '../assets/breeds/siberianH.png'
-import yorkshireTerrierImage from '../assets/breeds/yorkshireT.png'
+import { mediaUrl } from '../lib/media.js'
 
 export const breeds = [
   {
     name: 'Airedale Terrier',
     slug: 'airedale-terrier',
     rank: 49,
-    image: airedaleImage,
+    image: mediaUrl('breeds/airdale'),
     description:
       'A clever, spirited terrier with a polished silhouette that fits adventurous and storybook scenes.',
     temperament: ['Clever', 'Confident', 'Playful'],
@@ -37,7 +17,7 @@ export const breeds = [
     name: 'Golden Retriever',
     slug: 'golden-retriever',
     rank: 2,
-    image: goldenRetrieverImage,
+    image: mediaUrl('breeds/goldenR'),
     description:
       'Warm, loyal, and expressive, golden retrievers bring instant heart to cozy portraits and heroic settings.',
     temperament: ['Friendly', 'Devoted', 'Gentle'],
@@ -49,7 +29,7 @@ export const breeds = [
     name: 'French Bulldog',
     slug: 'french-bulldog',
     rank: 4,
-    image: frenchImage,
+    image: mediaUrl('breeds/french'),
     description:
       'Compact, charming, and full of personality, French bulldogs shine in playful scenes with a little attitude.',
     temperament: ['Charming', 'Adaptable', 'Alert'],
@@ -61,7 +41,7 @@ export const breeds = [
     name: 'German Shepherd',
     slug: 'german-shepherd',
     rank: 3,
-    image: germanImage,
+    image: mediaUrl('breeds/german'),
     description:
       'A bold, intelligent breed with a cinematic presence suited to epic adventures and loyal guardian portraits.',
     temperament: ['Loyal', 'Courageous', 'Smart'],
@@ -73,7 +53,7 @@ export const breeds = [
     name: 'Poodle',
     slug: 'poodle',
     rank: 14,
-    image: poodleImage,
+    image: mediaUrl('breeds/poodle'),
     description:
       'Elegant and bright, poodles work beautifully in refined portraits, magical worlds, and colorful scenes.',
     temperament: ['Elegant', 'Active', 'Bright'],
@@ -85,7 +65,7 @@ export const breeds = [
     name: 'Pembroke Welsh Corgi',
     slug: 'pembroke-welsh-corgi',
     rank: 8,
-    image: corgiImage,
+    image: mediaUrl('breeds/corgi'),
     description:
       'A cheerful low-rider with a heroic grin, perfect for whimsical landscapes and bright character artwork.',
     temperament: ['Affectionate', 'Bold', 'Cheerful'],
@@ -97,91 +77,91 @@ export const breeds = [
     name: 'Labrador Retriever',
     slug: 'labrador-retriever',
     rank: 1,
-    image: labradorRetrieverImage,
+    image: mediaUrl('breeds/labradorR'),
   },
   {
     name: 'Goldendoodle',
     slug: 'goldendoodle',
     rank: 5,
-    image: goldendoodleImage,
+    image: mediaUrl('breeds/goldendoodle'),
   },
   {
     name: 'Labradoodle',
     slug: 'labradoodle',
     rank: 6,
-    image: labradoodleImage,
+    image: mediaUrl('breeds/labradoodle'),
   },
   {
     name: 'Cockapoo',
     slug: 'cockapoo',
     rank: 7,
-    image: cockapooImage,
+    image: mediaUrl('breeds/cockapoo'),
   },
   {
     name: 'Dachshund',
     slug: 'dachshund',
     rank: 9,
-    image: dachshundImage,
+    image: mediaUrl('breeds/dachshund'),
   },
   {
     name: 'Australian Shepherd',
     slug: 'australian-shepherd',
     rank: 10,
-    image: australianShepherdImage,
+    image: mediaUrl('breeds/australianS'),
   },
   {
     name: 'Siberian Husky',
     slug: 'siberian-husky',
     rank: 11,
-    image: siberianHuskyImage,
+    image: mediaUrl('breeds/siberianH'),
   },
   {
     name: 'Border Collie',
     slug: 'border-collie',
     rank: 12,
-    image: borderCollieImage,
+    image: mediaUrl('breeds/borderC'),
   },
   {
     name: 'Beagle',
     slug: 'beagle',
     rank: 13,
-    image: beagleImage,
+    image: mediaUrl('breeds/beagle'),
   },
   {
     name: 'Bernese Mountain Dog',
     slug: 'bernese-mountain-dog',
     rank: 15,
-    image: berneseMountainDogImage,
+    image: mediaUrl('breeds/berneseMD'),
   },
   {
     name: 'Boxer',
     slug: 'boxer',
     rank: 16,
-    image: boxerImage,
+    image: mediaUrl('breeds/boxer'),
   },
   {
     name: 'Chihuahua',
     slug: 'chihuahua',
     rank: 17,
-    image: chihuahuaImage,
+    image: mediaUrl('breeds/chihuahua'),
   },
   {
     name: 'Cavalier King Charles Spaniel',
     slug: 'cavalier-king-charles-spaniel',
     rank: 18,
-    image: cavalierKingCharlesSpanielImage,
+    image: mediaUrl('breeds/cavalierKCS'),
   },
   {
     name: 'Shih Tzu',
     slug: 'shih-tzu',
     rank: 19,
-    image: shihTzuImage,
+    image: mediaUrl('breeds/shihT'),
   },
   {
     name: 'Yorkshire Terrier',
     slug: 'yorkshire-terrier',
     rank: 20,
-    image: yorkshireTerrierImage,
+    image: mediaUrl('breeds/yorkshireT'),
   },
 ].sort((a, b) => a.rank - b.rank)
 

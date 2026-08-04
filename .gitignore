@@ -11,6 +11,11 @@ node_modules
 dist
 dist-ssr
 *.local
+.cache/
+media-source/
+
+# Local source artwork is stored and delivered through Cloudflare R2.
+src/assets/**/*.png
 
 # Editor directories and files
 .vscode/*
