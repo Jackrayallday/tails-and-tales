@@ -1,8 +1,10 @@
-import bathroomImage from '../assets/collections/bathroom.png'
-import beachImage from '../assets/collections/beach.png'
-import christmasImage from '../assets/collections/christmas.png'
-import spaceImage from '../assets/collections/space.png'
-import villageImage from '../assets/collections/village.png'
+import { mediaUrl } from '../lib/media.js'
+
+const bathroomImage = mediaUrl('collections/bathroom')
+const beachImage = mediaUrl('collections/beach')
+const christmasImage = mediaUrl('collections/christmas')
+const spaceImage = mediaUrl('collections/space')
+const villageImage = mediaUrl('collections/village')
 
 export const collections = [
   {
@@ -11,8 +13,8 @@ export const collections = [
     description:
       'Mythic quests, wizard scenes, storybook villages, and legendary portraits for dogs with main-character magic.',
     theme: 'Fantasy',
-    artworkCount: 10,
-    count: '10 artworks',
+    artworkCount: 30,
+    count: '30 artworks',
     image: villageImage,
     featuredImages: [villageImage],
   },
@@ -22,8 +24,8 @@ export const collections = [
     description:
       'Playful bathroom scenes with bubbles, tile, towels, and expressive poses made for comic personality portraits.',
     theme: 'Humor',
-    artworkCount: 98,
-    count: '98 artworks',
+    artworkCount: 21,
+    count: '21 artworks',
     image: bathroomImage,
     featuredImages: [bathroomImage],
   },
@@ -33,8 +35,8 @@ export const collections = [
     description:
       'Planets, stars, space suits, and dramatic cosmic backdrops for pups with intergalactic main-character energy.',
     theme: 'Sci-Fi',
-    artworkCount: 87,
-    count: '87 artworks',
+    artworkCount: 21,
+    count: '21 artworks',
     image: spaceImage,
     featuredImages: [spaceImage],
   },
@@ -44,8 +46,8 @@ export const collections = [
     description:
       'Sunny coastlines, breezy colors, and relaxed summer scenes for dogs who belong near waves and warm sand.',
     theme: 'Coastal',
-    artworkCount: 76,
-    count: '76 artworks',
+    artworkCount: 21,
+    count: '21 artworks',
     image: beachImage,
     featuredImages: [beachImage],
   },
@@ -55,8 +57,8 @@ export const collections = [
     description:
       'Snow, ribbons, glowing windows, and festive portrait settings built for holiday cards and keepsakes.',
     theme: 'Holiday',
-    artworkCount: 63,
-    count: '63 artworks',
+    artworkCount: 21,
+    count: '21 artworks',
     image: christmasImage,
     featuredImages: [christmasImage],
   },

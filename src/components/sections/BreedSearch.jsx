@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
-import lineupImage from '../../assets/lineup.png'
+import { mediaUrl } from '../../lib/media.js'
+
+const lineupImage = mediaUrl('site/lineup', 'detail')
 import { SearchIcon } from '../ui/Icons.jsx'
 
 function BreedSearch() {
