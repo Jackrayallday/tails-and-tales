@@ -43,6 +43,15 @@ function App() {
           }
         />
         <Route path="/start" element={<StartPage />} />
+        <Route
+          path="/user"
+          element={
+            <BasicPage
+              title="User Page"
+              description="User page goes here for now."
+            />
+          }
+        />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />
