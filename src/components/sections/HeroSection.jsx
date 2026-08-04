@@ -88,7 +88,7 @@ function HeroSection() {
             worlds and timeless adventures.
           </p>
           <a
-            className="inline-flex items-center gap-3 rounded-2xl bg-slate-950 px-9 py-5 text-base font-bold text-white shadow-xl shadow-slate-950/15"
+            className="inline-flex items-center gap-3 rounded-2xl bg-slate-950 px-9 py-5 text-base font-bold text-white shadow-xl shadow-slate-950/15 transition hover:-translate-y-0.5 hover:bg-slate-700 hover:shadow-2xl hover:shadow-slate-950/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2"
             href="#breed-search"
           >
             Find Your Breed
@@ -98,21 +98,43 @@ function HeroSection() {
       </div>
 
       <button
-        className="absolute left-4 top-1/2 z-20 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/85 text-3xl leading-none text-slate-950 shadow-lg shadow-slate-950/10 ring-1 ring-slate-950/5 transition hover:bg-orange-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 md:flex"
+        className="absolute left-4 top-1/2 z-20 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/85 text-slate-950 shadow-lg shadow-slate-950/10 ring-1 ring-slate-950/5 transition hover:bg-orange-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 md:flex"
         type="button"
         aria-label="Show previous hero image"
         onClick={showPreviousImage}
       >
-        <span aria-hidden="true">‹</span>
+        <svg
+          className="h-6 w-6"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden="true"
+        >
+          <path d="m15 18-6-6 6-6" />
+        </svg>
       </button>
 
       <button
-        className="absolute right-4 top-1/2 z-20 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/85 text-3xl leading-none text-slate-950 shadow-lg shadow-slate-950/10 ring-1 ring-slate-950/5 transition hover:bg-orange-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 md:flex"
+        className="absolute right-4 top-1/2 z-20 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/85 text-slate-950 shadow-lg shadow-slate-950/10 ring-1 ring-slate-950/5 transition hover:bg-orange-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 md:flex"
         type="button"
         aria-label="Show next hero image"
         onClick={showNextImage}
       >
-        <span aria-hidden="true">›</span>
+        <svg
+          className="h-6 w-6"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden="true"
+        >
+          <path d="m9 18 6-6-6-6" />
+        </svg>
       </button>
 
       <div className="absolute bottom-24 left-1/2 z-20 flex -translate-x-1/2 gap-3">

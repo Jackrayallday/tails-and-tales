@@ -1,5 +1,5 @@
 import { Link, NavLink } from 'react-router-dom'
-import { HeartIcon, PawIcon, UserIcon } from '../ui/Icons.jsx'
+import { PawIcon, UserIcon } from '../ui/Icons.jsx'
 
 const navLinkClassName = ({ isActive }) =>
   `rounded-full px-4 py-2 transition ${
@@ -43,17 +43,15 @@ function Header() {
         </nav>
 
         <div className="hidden items-center gap-5 lg:flex">
-          <button className="text-slate-950" aria-label="Favorites">
-            <HeartIcon />
-          </button>
-          <button
-            className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-slate-950 text-slate-950"
+          <Link
+            className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-slate-950 text-slate-950 transition hover:bg-slate-950 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2"
             aria-label="Account"
+            to="/user"
           >
             <UserIcon />
-          </button>
+          </Link>
           <Link
-            className="rounded-2xl bg-slate-950 px-5 py-3 text-sm font-bold text-white"
+            className="rounded-2xl bg-slate-950 px-5 py-3 text-sm font-bold text-white transition hover:bg-slate-700 hover:shadow-lg hover:shadow-slate-950/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2"
             to="/start"
           >
             Get Started
