@@ -42,7 +42,7 @@ function FilterSelect({ label, value, onChange, options }) {
     <label className="grid gap-2 text-sm font-bold text-slate-950">
       {label}
       <select
-        className="h-11 rounded-lg border border-slate-200 bg-white px-3 text-sm font-semibold text-slate-700 shadow-sm focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-200"
+        className="h-11 w-full rounded-lg border border-slate-200 bg-white px-3 text-sm font-semibold text-slate-700 shadow-sm focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-200"
         value={value}
         onChange={(event) => onChange(event.target.value)}
       >
@@ -62,6 +62,7 @@ function ArtworkBrowse({
   description,
   lockedBreed,
   lockedCollection,
+  hideHeader = false,
 }) {
   const [breedFilter, setBreedFilter] = useState(lockedBreed ?? 'all')
   const [collectionFilter, setCollectionFilter] = useState(
@@ -120,31 +121,46 @@ function ArtworkBrowse({
   }, [filteredArtworks])
 
   return (
-    <section className="mt-12" aria-labelledby="artwork-browse-title">
-      <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-        <div>
-          <p className="mb-3 text-sm font-bold uppercase tracking-wide text-orange-700">
-            Browse Gallery
-          </p>
-          <h2
-            className="text-3xl font-bold text-slate-950 sm:text-4xl"
-            id="artwork-browse-title"
-          >
-            {title}
-          </h2>
-          {description ? (
-            <p className="mt-3 max-w-2xl leading-7 text-slate-700">
-              {description}
+    <section
+      className={hideHeader ? 'mt-7' : 'mt-9'}
+      aria-labelledby={hideHeader ? undefined : 'artwork-browse-title'}
+      aria-label={hideHeader ? `${title} gallery` : undefined}
+    >
+      {hideHeader ? null : (
+        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="mb-3 text-sm font-bold uppercase tracking-wide text-orange-700">
+              Browse Gallery
             </p>
-          ) : null}
+            <h2
+              className="text-3xl font-bold text-slate-950 sm:text-4xl"
+              id="artwork-browse-title"
+            >
+              {title}
+            </h2>
+            {description ? (
+              <p className="mt-3 max-w-2xl leading-7 text-slate-700">
+                {description}
+              </p>
+            ) : null}
+          </div>
+          <p className="text-sm font-bold text-slate-500">
+            {artworkGroups.length} designs from {filteredArtworks.length}{' '}
+            artworks
+          </p>
         </div>
-        <p className="text-sm font-bold text-slate-500">
-          {artworkGroups.length} designs from {filteredArtworks.length}{' '}
-          artworks
-        </p>
-      </div>
+      )}
 
-      <div className="mt-6 grid gap-3 rounded-xl bg-white p-4 shadow-lg shadow-slate-950/10 sm:grid-cols-2 lg:grid-cols-5">
+      <div
+        className={`${hideHeader ? '' : 'mt-6'} grid items-start gap-6 lg:grid-cols-[15rem_minmax(0,1fr)] lg:gap-8`}
+      >
+        <aside
+          className="grid gap-4 rounded-xl bg-white p-4 shadow-lg shadow-slate-950/10 sm:grid-cols-2 lg:sticky lg:top-28 lg:grid-cols-1"
+          aria-label="Artwork filters"
+        >
+          <h3 className="text-lg font-bold text-slate-950 sm:col-span-2 lg:col-span-1">
+            Filters
+          </h3>
         {lockedBreed ? null : (
           <FilterSelect
             label="Breed"
@@ -182,10 +198,10 @@ function ArtworkBrowse({
           onChange={setSort}
           options={sortOptions}
         />
-      </div>
+        </aside>
 
-      {filteredArtworks.length ? (
-        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {filteredArtworks.length ? (
+          <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
           {artworkGroups.map((group) => {
             const artwork = group[0]
             const isSeries = group.length > 1
@@ -234,17 +250,18 @@ function ArtworkBrowse({
               </Link>
             )
           })}
-        </div>
-      ) : (
-        <div className="mt-8 rounded-xl bg-white p-8 text-center shadow-lg shadow-slate-950/10">
-          <h3 className="text-2xl font-bold text-slate-950">
-            No artwork matches those filters
-          </h3>
-          <p className="mt-3 text-slate-600">
-            Try a different breed, collection, style, or price range.
-          </p>
-        </div>
-      )}
+          </div>
+        ) : (
+          <div className="rounded-xl bg-white p-8 text-center shadow-lg shadow-slate-950/10">
+            <h3 className="text-2xl font-bold text-slate-950">
+              No artwork matches those filters
+            </h3>
+            <p className="mt-3 text-slate-600">
+              Try a different breed, collection, style, or price range.
+            </p>
+          </div>
+        )}
+      </div>
     </section>
   )
 }

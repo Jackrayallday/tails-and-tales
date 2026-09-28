@@ -28,39 +28,66 @@ function ArtworkDetailPage() {
     : []
 
   return (
-    <main className="flex-1 bg-[#fbf7ef] px-6 pb-16 pt-36 lg:px-10">
-      <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-start">
-        <img
-          className="w-full rounded-xl object-cover shadow-xl shadow-slate-950/15"
-          src={artwork.image}
-          alt={`${artwork.title} artwork`}
-        />
-
-        <div>
-          {collection ? (
-            <Link
-              className="mb-6 inline-block font-semibold text-orange-700"
-              to={`/collections/${collection.slug}`}
+    <main className="flex-1 bg-[#fbf7ef] px-6 pb-20 pt-32 lg:px-10 lg:pt-36">
+      <div className="mx-auto max-w-7xl">
+        {collection ? (
+          <Link
+            className="group mb-6 inline-flex items-center gap-2 rounded-xl border-2 border-slate-950 bg-white px-4 py-2.5 text-sm font-bold text-slate-950 shadow-sm transition hover:bg-slate-950 hover:text-white hover:shadow-lg hover:shadow-slate-950/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2"
+            to={`/collections/${collection.slug}`}
+          >
+            <svg
+              className="h-4 w-4 transition-transform group-hover:-translate-x-1"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
             >
-              &lt;- {collection.title}
-            </Link>
-          ) : null}
+              <path d="M19 12H5M11 18l-6-6 6-6" />
+            </svg>
+            Back to {collection.title}
+          </Link>
+        ) : null}
 
-          <p className="mb-3 text-sm font-bold uppercase tracking-wide text-orange-700">
-            Artwork
-          </p>
-          <h1 className="text-5xl font-bold text-slate-950">
-            {artwork.title}
-          </h1>
-          <p className="mt-6 max-w-xl text-lg leading-8 text-slate-700">
-            {artwork.description}
-          </p>
-          <p className="mt-4 text-2xl font-bold text-slate-950">
-            ${artwork.price}
-          </p>
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(22rem,0.8fr)] lg:items-start xl:gap-14">
+          <figure className="lg:sticky lg:top-28">
+            <div className="flex min-h-[28rem] items-center justify-center lg:min-h-[36rem]">
+              <img
+                className="max-h-[calc(100vh-11rem)] max-w-full rounded-xl object-contain shadow-2xl shadow-slate-950/20"
+                src={artwork.image}
+                alt={`${artwork.title} artwork`}
+              />
+            </div>
+            <figcaption className="mt-3 px-1 text-sm text-slate-600">
+              <span>{artwork.title}</span>
+            </figcaption>
+          </figure>
+
+          <div className="rounded-2xl bg-white p-6 shadow-xl shadow-slate-950/10 sm:p-8">
+            <div className="flex flex-wrap items-center gap-2">
+              {breed ? (
+                <Link
+                  className="rounded-full bg-slate-100 px-3 py-1.5 text-xs font-bold text-slate-700 transition hover:bg-slate-200 hover:text-slate-950"
+                  to={`/breeds/${breed.slug}`}
+                >
+                  {breed.name}
+                </Link>
+              ) : null}
+            </div>
+            <h1 className="mt-5 text-4xl font-bold leading-tight text-slate-950 sm:text-5xl">
+              {artwork.title}
+            </h1>
+            <p className="mt-5 text-lg leading-8 text-slate-700">
+              {artwork.description}
+            </p>
+            <p className="mt-5 text-3xl font-bold text-slate-950">
+              ${artwork.price}
+            </p>
 
           {seriesArtworks.length > 1 ? (
-            <div className="mt-8">
+            <div className="mt-8 border-t border-slate-200 pt-8">
               <label
                 className="block text-xl font-bold text-slate-950"
                 htmlFor="breed-variant"
@@ -114,10 +141,10 @@ function ArtworkDetailPage() {
             <div className="mt-4 grid gap-3 sm:grid-cols-3">
               {printSizes.map((size) => (
                 <button
-                  className={`rounded-xl border-2 px-4 py-3 text-sm font-bold ${
+                  className={`rounded-xl border-2 px-4 py-3 text-sm font-bold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 ${
                     selectedSize === size
                       ? 'border-slate-950 bg-slate-950 text-white'
-                      : 'border-slate-200 bg-white text-slate-950'
+                      : 'border-slate-200 bg-white text-slate-950 hover:border-slate-500'
                   }`}
                   type="button"
                   onClick={() => setSelectedSize(size)}
@@ -134,10 +161,10 @@ function ArtworkDetailPage() {
             <div className="mt-4 grid gap-3">
               {printFormats.map((format) => (
                 <button
-                  className={`rounded-xl border-2 px-4 py-3 text-left text-sm font-bold ${
+                  className={`rounded-xl border-2 px-4 py-3 text-left text-sm font-bold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 ${
                     selectedFormat === format
                       ? 'border-slate-950 bg-slate-950 text-white'
-                      : 'border-slate-200 bg-white text-slate-950'
+                      : 'border-slate-200 bg-white text-slate-950 hover:border-slate-500'
                   }`}
                   type="button"
                   onClick={() => setSelectedFormat(format)}
@@ -149,7 +176,7 @@ function ArtworkDetailPage() {
             </div>
           </div>
 
-          <div className="mt-8 rounded-xl bg-white p-5 shadow-lg shadow-slate-950/10">
+          <div className="mt-8 rounded-xl bg-[#fbf7ef] p-5 ring-1 ring-slate-200">
             <p className="font-bold text-slate-950">
               {selectedSize} {selectedFormat}
             </p>
@@ -159,6 +186,7 @@ function ArtworkDetailPage() {
             </p>
           </div>
         </div>
+      </div>
       </div>
     </main>
   )

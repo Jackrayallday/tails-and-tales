@@ -84,6 +84,10 @@ const series = [
   },
 ]
 
+function indefiniteArticleFor(name) {
+  return /^[aeiou]/i.test(name) ? 'An' : 'A'
+}
+
 function variantsForSeries(seriesDefinition, seriesIndex) {
   const usesLongLabradorKey = [
     'morning-reader',
@@ -112,7 +116,7 @@ function variantsForSeries(seriesDefinition, seriesIndex) {
       createdAt: `2026-07-${String(18 - seriesIndex).padStart(2, '0')}`,
       popularity: 90 - seriesIndex + (variantIndex % 7),
       image: mediaUrl(`artworks/${seriesDefinition.path}/${fileName}`),
-      description: `A ${breedName} ${seriesDefinition.description}`,
+      description: `${indefiniteArticleFor(breedName)} ${breedName} ${seriesDefinition.description}`,
       tags: seriesDefinition.tags,
     }
   })

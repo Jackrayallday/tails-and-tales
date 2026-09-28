@@ -43,6 +43,7 @@ function App() {
           }
         />
         <Route path="/start" element={<StartPage />} />
+        {/* TODO: Replace this placeholder with Neon Auth and a protected account page. */}
         <Route
           path="/user"
           element={
